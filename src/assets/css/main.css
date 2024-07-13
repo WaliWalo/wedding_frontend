@@ -1,0 +1,111 @@
+:root{
+    --bs-mainColour: #ac0d31;
+    --bs-secondaryColour: #e1dfd8;
+    --bs-tertiaryColour: #f25d29;
+    --bs-quaternaryColour: #efb739;
+}
+
+body{
+    background-color: var(--bs-quaternaryColour);
+}
+
+@font-face {
+    font-family: 'ButterflyKids';
+    src: local('ButterflyKids'), url(../font/ButterflyKids-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'DancingScriptBold';
+    src: local('DancingScriptBold'), url(../font/DancingScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CaveatBold';
+    src: local('CaveatBold'), url(../font/Caveat-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CaveatRegular';
+    src: local('CaveatRegular'), url(../font/Caveat-Regular.ttf) format('truetype');
+}
+
+h1{
+    font-family: 'DancingScriptBold';
+}
+
+h2{
+    font-family: 'CaveatBold';
+}
+
+span{
+    font-family: 'CaveatRegular';
+    font-size: 1.5em;
+}
+
+.mainBgColour{
+    background-color: var(--bs-mainColour);
+}
+
+.secondaryBgColour{
+    background-color: var(--bs-secondaryColour);
+}
+
+.tertiaryBgColour{
+    background-color: var(--bs-tertiaryColour);
+}
+
+.quaternaryBgColour{
+    background-color: var(--bs-quaternaryColour);
+}
+
+.mainFontColor{
+    color: var(--bs-mainColour)
+}
+
+.secondaryFontColor{
+    color: var(--bs-secondaryColour)
+}
+
+.secondaryFontColor{
+    color: var(--bs-secondaryColour)
+}
+
+.tertiaryFontColor{
+    color: var(--bs-tertiaryColour)
+}
+
+.quarternaryFontColor{
+    color: var(--bs-quarternaryColour)
+}
+
+#nav-link >a.active{
+    border-bottom: solid 2px var(--bs-quaternaryColour);
+}
+
+@media (min-width: 576px) {
+    .w-sm-50{
+        width: 50% !important;
+    }
+    .w-sm-25{
+        width: 25% !important;
+    }
+    .min-sm-250{
+        min-width: 250px;
+    }
+    .max-sm-250{
+        max-width: 250px;
+    }
+ }
+
+.lg-react-element {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.lg-video-cont  {
+    width: 70% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 38%;
+    left: 15%;
+}
