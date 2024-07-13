@@ -12,7 +12,7 @@ export const fetchProfile = createAsyncThunk('profile/fetchProfile', async (args
       redirect: 'follow'
     };
   
-  const response = await fetch(`http://localhost:8080/api/users/${args.weddingId}/email/${args.email}`, requestOptions);
+  const response = await fetch(`https://wedding-backend-weld.vercel.app/api/users/${args.weddingId}/email/${args.email}`, requestOptions);
   const data = await response.json();
   return data
 })
@@ -23,7 +23,7 @@ export const fetchProfileByName = createAsyncThunk('profile/fetchProfileByName',
     redirect: 'follow'
   };
 
-  const response = await fetch(`http://localhost:8080/api/users/${args.weddingId}/name/${args.name}`, requestOptions);
+  const response = await fetch(`https://wedding-backend-weld.vercel.app/api/users/${args.weddingId}/name/${args.name}`, requestOptions);
   const data = await response.json();
   if(response.status === 404){
     return null;
@@ -50,7 +50,7 @@ export const updateProfile = createAsyncThunk('profile/updateProfile', async (ar
       body: body,
     };
   console.log(body);
-  const response = await fetch(`http://localhost:8080/api/users/${args.weddingId}/${args.userId}`, requestOptions);
+  const response = await fetch(`https://wedding-backend-weld.vercel.app/api/users/${args.weddingId}/${args.userId}`, requestOptions);
   const data = await response.json();
   return data
 })

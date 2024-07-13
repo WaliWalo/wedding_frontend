@@ -13,7 +13,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (token) => 
       Authorization: `Bearer ${token}`,
     }
   };
-  const response = await fetch("http://localhost:8080/api/galleries/659cfdc8ef6b5b99ee54d605", requestOptions);
+  const response = await fetch("https://wedding-backend-weld.vercel.app/api/galleries/659cfdc8ef6b5b99ee54d605", requestOptions);
   const data = await response.json();
   return data
 })

@@ -17,7 +17,7 @@ export const createUser = async (firstName, lastName) => {
     };
 
     try {
-        const response = await fetch("http://localhost:8080/api/users/659cfdc8ef6b5b99ee54d605", requestOptions);
+        const response = await fetch("https://wedding-backend-weld.vercel.app/api/users/659cfdc8ef6b5b99ee54d605", requestOptions);
         const result = await response.text();
         if(response.ok){
             return result;
@@ -36,7 +36,7 @@ export const getAllImages = async () => {
       };
       
       try {
-        const response = await fetch("http://localhost:8080/api/galleries", requestOptions);
+        const response = await fetch("https://wedding-backend-weld.vercel.app/api/galleries", requestOptions);
         const result = await response.text();
         const parseResult = JSON.parse(result);
         if(typeof parseResult.resources === "undefined"){
@@ -62,7 +62,7 @@ export const deleteImageById = async (id) => {
       };
       
       try {
-        const response = await fetch(`http://localhost:8080/api/galleries/cloudinary/`, requestOptions);
+        const response = await fetch(`https://wedding-backend-weld.vercel.app/api/galleries/cloudinary/`, requestOptions);
         const result = await response.text();
         return JSON.parse(result);
       } catch (error) {

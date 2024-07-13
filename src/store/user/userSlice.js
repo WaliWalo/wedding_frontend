@@ -12,7 +12,7 @@ export const fetchPosts = createAsyncThunk('user/getUsers', async () => {
     redirect: 'follow'
   };
   
-  const response = await fetch("http://localhost:8080/api/users/659cfdc8ef6b5b99ee54d605", requestOptions);
+  const response = await fetch("https://wedding-backend-weld.vercel.app/api/users/659cfdc8ef6b5b99ee54d605", requestOptions);
   const data = await response.json();
   return data
 })

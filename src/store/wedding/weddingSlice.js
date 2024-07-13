@@ -11,7 +11,7 @@ export const fetchWedding = createAsyncThunk('weddings/fetchWedding', async (arg
         method: 'GET',
         redirect: 'follow'
     };
-    const response = await fetch(`http://localhost:8080/api/weddings/${args.weddingId}`, requestOptions);
+    const response = await fetch(`https://wedding-backend-weld.vercel.app/api/weddings/${args.weddingId}`, requestOptions);
     const data = await response.json();
     return data
 })
