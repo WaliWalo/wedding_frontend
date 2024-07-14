@@ -74,7 +74,7 @@ export const YesModal = () => {
                 >
                     <Form.Control type="text" required placeholder="John Snow" onInput={handleChange}/>
                 </FloatingLabel>
-                <Button variant="primary" type="submit" className='m-auto'>
+                <Button type="submit" className='m-auto addGuestBtn'>
                     Add Guest
                 </Button>
             </Form>

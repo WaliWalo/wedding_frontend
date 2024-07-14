@@ -23,7 +23,6 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
         setLoaded(true);
       }
     }
-    console.log(loaded);
   }, [loaded]);
 
   const initializeCloudinaryWidget = () => {
@@ -32,7 +31,6 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
         uwConfig,
         (error, result) => {
           if (!error && result && result.event === "success") {
-            console.log("Done! Here is the image info: ", result.info);
             setPublicId(result.info.public_id);
           }
         }
@@ -45,7 +43,7 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
     <CloudinaryScriptContext.Provider value={{ loaded }}>
       <button
         id="upload_widget"
-        className="btn-outline-dark btn"
+        className="btn-light btn"
         onClick={initializeCloudinaryWidget}
       >
         Upload a Photo

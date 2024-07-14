@@ -7,7 +7,6 @@ const Profile = () => {
   const dispatch = useDispatch()
   const profile = useSelector(getProfile)
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(profile);
   const profileStatus = useSelector(state => state.profile.status)
   const error = useSelector(state => state.profile.error)
   useEffect(() => {
@@ -39,7 +38,6 @@ const Profile = () => {
     return <div>Loading ...</div>;
   }
 
-  console.log(user);
   return (
     isAuthenticated && (
       <div>

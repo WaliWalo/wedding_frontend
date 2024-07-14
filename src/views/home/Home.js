@@ -24,17 +24,17 @@ const Home = () => {
                 <Image src={DoubleHappiness} className='w-50 h-50'/>
             </div>            
             <h2 className='text-center text-decoration-underline'>{wedding.location}</h2>
-            <div className="d-flex flex-row justify-content-center w-100 align-items-center">
-              <span className='w-25 text-center'>
+            <div className="d-flex flex-row justify-content-evenly w-100 align-items-center">
+              <span className='w-25 text-center spanFont'>
                 {startDate.toLocaleString('default', { month: 'long' })}
               </span>
               <div className='w-25 text-center'>                
-                <span>{startDate.toLocaleString('default', { weekday: 'short' })}</span>
+                <span className='spanFont'>{startDate.toLocaleString('default', { weekday: 'short' })}</span>
                 <h1 style={{fontSize:"4em"}}>
                   {startDate.toLocaleString('default', { day: 'numeric' })}
                 </h1>
               </div>
-              <span className='w-25 text-center'>
+              <span className='w-25 text-center spanFont'>
                 {startDate.getFullYear()}
               </span>
             </div>

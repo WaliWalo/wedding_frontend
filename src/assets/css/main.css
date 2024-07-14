@@ -37,7 +37,7 @@ h2{
     font-family: 'CaveatBold';
 }
 
-span{
+.spanFont{
     font-family: 'CaveatRegular';
     font-size: 1.5em;
 }
@@ -108,4 +108,23 @@ span{
     position: absolute;
     top: 38%;
     left: 15%;
+}
+
+.addGuestBtn{
+    background-color: #efb739;
+    border-color:#ac0d31;
+}
+
+.swal2-input-label{
+    padding: 1em !important;
+}
+
+.swal2-icon .swal2-success .swal2-icon-show {
+    width: 88px !important;
+    height: 88px !important;
+}
+  
+.swal2-icon .swal2-success .placeholder {
+    width: 88px !important;
+    height: 88px !important;
 }

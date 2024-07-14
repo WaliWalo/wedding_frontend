@@ -53,7 +53,6 @@ const Login = () => {
                         confirmButtonText: 'Cool'
                     })
                 }else{
-                    console.log(profile);
                     if(profile === null){                    
                         Swal.fire({
                             title: 'Welcome',
@@ -62,7 +61,7 @@ const Login = () => {
                             confirmButtonText: 'Cool'
                         }).then(() => {                    
                             localStorage.setItem("myUserName", `${firstName}_${lastName}`);
-                            // create();
+                            create();
                             navigate('/')
                         });
                     }else{

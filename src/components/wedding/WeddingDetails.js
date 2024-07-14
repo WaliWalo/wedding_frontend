@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { NoModal } from './NoModal';
 import { YesModal } from './YesModal';
-import { getProfile, fetchProfile, updateProfile } from '../../store/profile/profileSlice'
+import { getProfile, fetchProfileByName, updateProfile } from '../../store/profile/profileSlice'
 import Swal from 'sweetalert2';
 
 export const WeddingDetails = () => {
@@ -17,7 +17,7 @@ export const WeddingDetails = () => {
     const profile = useSelector(getProfile);
     const profileStatus = useSelector(state => state.profile.status);
     const profileError = useSelector(state => state.profile.error);
-
+    const [userName, setUserName] = useState(localStorage.getItem("myUserName")); 
     const [show, setShow] = useState(false);
     const [rsvp, setRsvp] = useState(false);
     const [allergy, setAllergy] = useState("");
@@ -70,6 +70,7 @@ export const WeddingDetails = () => {
     }
     const selectAllergyYes = () => {
       Swal.fire({
+        confirmButtonColor: "#efb739",
         input: "textarea",
         inputValue: allergy,
         inputLabel: "Allergy Requirement",
@@ -79,7 +80,6 @@ export const WeddingDetails = () => {
         },
         showCancelButton: true,
         preConfirm: (value) => {
-          console.log(value)
           const updateAllergyYes = async () => {
             try {          
               let updatedProfile = {...profile};
@@ -109,6 +109,7 @@ export const WeddingDetails = () => {
     }
     const selectOvernightYes = () => {
       Swal.fire({
+        confirmButtonColor: "#efb739",
         input: "select",
         inputOptions: {
           1: 1,
@@ -116,7 +117,7 @@ export const WeddingDetails = () => {
           3: 3
         },
         inputPlaceholder: "Select a number",
-        inputLabel: "How many huts? Each huts sleeps 4, two double beds. (110 Pounds Each)",
+        inputLabel: "How many huts? Each huts sleeps 4, two double beds. (130 Pounds Each)",
         inputAttributes: {
           "aria-label": "How many huts?"
         },
@@ -154,9 +155,13 @@ export const WeddingDetails = () => {
     }, [weddingStatus, dispatch])
 
     useEffect(() => {
-      setRsvp(profile.accepted);
-      setAllergy(profile.allergy);
-      setOvernight(profile.overnight);
+      if(profile == null){
+        dispatch(fetchProfileByName({name: `${userName}`, weddingId: '659cfdc8ef6b5b99ee54d605'}))
+      }else{
+        setRsvp(profile.accepted);
+        setAllergy(profile.allergy);
+        setOvernight(profile.overnight);
+      }
     }, [profileStatus, dispatch])
 
     let content;
@@ -169,30 +174,30 @@ export const WeddingDetails = () => {
               RSVP by 01.01.2025
             </h2>
             <div className='d-flex justify-content-evenly'>
-              <Button variant={rsvp ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectYes}>
+              <Button variant={rsvp ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectYes}>
                 Yes
               </Button>
-              <Button variant={!rsvp ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectNo}>
+              <Button variant={!rsvp ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectNo}>
                 No
               </Button>
             </div>
             <h2 className='text-center my-2'>Any Allergy Requirement?</h2>
-            {allergy !== "" ? <div className='text-center'><span>{allergy}</span></div> : ""}
+            {allergy !== "" ? <div className='text-center'><span className='spanFont'>{allergy}</span></div> : ""}
             <div className='d-flex justify-content-evenly'>
-              <Button variant={allergy !== "" ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectAllergyYes}>
+              <Button variant={allergy !== "" ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectAllergyYes}>
                 Yes
               </Button>
-              <Button variant={allergy === "" ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectAllergyNo}>
+              <Button variant={allergy === "" ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectAllergyNo}>
                 No
               </Button>
             </div>
             <h2 className='text-center my-2'>Will you be staying overnight?</h2>
-            {overnight !== 0 ? <div className='text-center'><span>{overnight} Huts</span></div> : ""}
+            {overnight !== 0 ? <div className='text-center'><span className='spanFont'>{overnight} Huts</span></div> : ""}
             <div className='d-flex justify-content-evenly'>
-              <Button variant={overnight !== 0 ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectOvernightYes}>
+              <Button variant={overnight !== 0 ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectOvernightYes}>
                 Yes
               </Button>
-              <Button variant={overnight === 0 ? "light" : "outline-light"} size="lg" className='px-5' onClick={selectOvernightNo}>
+              <Button variant={overnight === 0 ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectOvernightNo}>
                 No
               </Button>
             </div>

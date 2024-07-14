@@ -49,7 +49,6 @@ export const updateProfile = createAsyncThunk('profile/updateProfile', async (ar
       },
       body: body,
     };
-  console.log(body);
   const response = await fetch(`https://wedding-backend-weld.vercel.app/api/users/${args.weddingId}/${args.userId}`, requestOptions);
   const data = await response.json();
   return data

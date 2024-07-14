@@ -2,8 +2,8 @@ import  React, { useEffect, useState  } from "react";
 import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 import { Cloudinary } from "@cloudinary/url-gen";
 import {getAllImages, deleteImageById} from '../../services/api'
-import { getProfile } from '../../store/profile/profileSlice'
-import { useSelector } from 'react-redux'
+import { getProfile, fetchProfileByName } from '../../store/profile/profileSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import { Button } from "react-bootstrap";
 import LightGallery from 'lightgallery/react';
 // import styles
@@ -18,6 +18,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2';
 
 const Gallery = () => {
+  const dispatch = useDispatch();
   const [publicId, setPublicId] = useState("");
   const [images, setImages] = useState([]);
   const profile = useSelector(getProfile);
@@ -27,7 +28,8 @@ const Gallery = () => {
   const [cloudName] = useState("waliwalo");
   // Replace with your own upload preset
   const [uploadPreset] = useState("b2jvtt3j");
- 
+  const [userName, setUserName] = useState(localStorage.getItem("myUserName")); 
+
   const [uwConfig, setUwConfig] = useState({
     cloudName,
     uploadPreset,
@@ -53,7 +55,11 @@ const Gallery = () => {
 
   useEffect(() => {    
     if(profileStatus === "succeeded"){
-      setUwConfig({...uwConfig, folder: profile.id})
+      if(profile == null){
+        dispatch(fetchProfileByName({name: `${userName}`, weddingId: '659cfdc8ef6b5b99ee54d605'}))
+      }else{
+        setUwConfig({...uwConfig, folder: profile.id})
+      }
     }
   }, [profile])
 
@@ -72,17 +78,21 @@ const Gallery = () => {
     Swal.fire({
         title: 'Are you sure you want to delete?',
         icon: 'warning',
-        confirmButtonText: 'Ok'
-    }).then(async () => {                    
-      let result = await deleteImageById(public_id);
-      Swal.fire({
-          title: 'Image deleted',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-      }).then(async () => {
-        let result = await getAllImages();
-        setImages(result.resources);
-      });
+        confirmButtonText: 'Ok',
+        showCancelButton: true
+    }).then(async (response) => {         
+      if (response.isConfirmed) {
+          let result = await deleteImageById(public_id);
+          // console.log(result);
+          Swal.fire({
+              title: 'Image deleted',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+          }).then(async () => {
+            let result = await getAllImages();
+            setImages(result.resources);
+          });
+      }                 
     });    
   }
 
@@ -93,8 +103,6 @@ const Gallery = () => {
       let result = await getAllImages();
       setImages(result.resources);
     };
-    console.log(myImage.publicID)
-    console.log(publicId)
     getImages();
     // if(myImage.publicID !== publicId){
     //   console.log(myImage);
@@ -112,6 +120,9 @@ const Gallery = () => {
           {images.map((x, i) => {
             let htmlString = "";
             let owner = x.public_id.includes(profile.id);
+            if(userName == "hung jin_chong"){
+              owner = true;
+            }
             if(x.resource_type === "video"){
               htmlString = <div style={{position: 'relative'}} key={i} className="w-50 w-sm-25 gallery-item p-2" data-video={`{"source": [{"src":"${x.secure_url}", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true, "playsinline": true}}`} >
                               <img

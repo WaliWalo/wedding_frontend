@@ -40,7 +40,6 @@ const Profile = () => {
     return <div>Loading ...</div>;
   }
 
-  console.log(user);
   return (
     isAuthenticated && (
       <div>
