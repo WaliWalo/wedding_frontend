@@ -117,7 +117,7 @@ export const WeddingDetails = () => {
           3: 3
         },
         inputPlaceholder: "Select a number",
-        inputLabel: "How many huts? Each huts sleeps 4, two double beds. (130 Pounds Each)",
+        inputLabel: "How many huts? Each huts sleeps 4, two double beds. (130 Pounds Each), you can either book it at Salemsbury website yourselves, or let us know so we can contact the venue.",
         inputAttributes: {
           "aria-label": "How many huts?"
         },
@@ -174,24 +174,30 @@ export const WeddingDetails = () => {
               RSVP by 01.01.2025
             </h2>
             <div className='d-flex justify-content-evenly'>
-              <Button variant={rsvp ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectYes}>
+              <Button variant={rsvp ? "warning" : "outline-warning"} size="lg" className='px-5  mx-2' onClick={selectYes}>
                 Yes
               </Button>
-              <Button variant={!rsvp ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectNo}>
+              <Button variant={!rsvp ? "warning" : "outline-warning"} size="lg" className='px-5  mx-2' onClick={selectNo}>
                 No
               </Button>
             </div>
             <h2 className='text-center my-2'>Any Allergy Requirement?</h2>
             {allergy !== "" ? <div className='text-center'><span className='spanFont'>{allergy}</span></div> : ""}
             <div className='d-flex justify-content-evenly'>
-              <Button variant={allergy !== "" ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectAllergyYes}>
+              <Button variant={allergy !== "" ? "warning" : "outline-warning"} size="lg" className='px-5  mx-2' onClick={selectAllergyYes}>
                 Yes
               </Button>
-              <Button variant={allergy === "" ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectAllergyNo}>
+              <Button variant={allergy === "" ? "warning" : "outline-warning"} size="lg" className='px-5  mx-2' onClick={selectAllergyNo}>
                 No
               </Button>
             </div>
-            <h2 className='text-center my-2'>Will you be staying overnight?</h2>
+            <hr></hr>
+            <h2 className='text-center'>
+              Stay overnight in the on-site huts for £130 per night. Each hut sleeps up to 4 with double bunk beds. 
+              To book, contact our Reception Team at 01254 812010 or email reception@samlesburyhall.co.uk.
+            </h2>
+
+            {/* <h2 className='text-center my-2'>Will you be staying overnight?</h2>
             {overnight !== 0 ? <div className='text-center'><span className='spanFont'>{overnight} Huts</span></div> : ""}
             <div className='d-flex justify-content-evenly'>
               <Button variant={overnight !== 0 ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectOvernightYes}>
@@ -200,7 +206,7 @@ export const WeddingDetails = () => {
               <Button variant={overnight === 0 ? "light" : "outline-light"} size="lg" className='px-5  mx-2' onClick={selectOvernightNo}>
                 No
               </Button>
-            </div>
+            </div> */}
             <Modal show={show} onHide={handleClose} centered>
               {rsvp ? <YesModal></YesModal> : <NoModal></NoModal>}
               {/* <Modal.Footer>

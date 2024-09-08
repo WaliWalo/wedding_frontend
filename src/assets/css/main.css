@@ -2,11 +2,20 @@
     --bs-mainColour: #ac0d31;
     --bs-secondaryColour: #e1dfd8;
     --bs-tertiaryColour: #f25d29;
-    --bs-quaternaryColour: #efb739;
+    --bs-quaternaryColour: #ECCB51;
+    --bs-redColour: #f12527;
 }
 
-body{
-    background-color: var(--bs-quaternaryColour);
+body{ 
+    background: radial-gradient(circle, hsla(0, 81%, 55%, 1) 0%, hsla(0, 0%, 3%, 1) 100%);
+}
+
+.bgImg{
+    background-image: url("../images/backgroundImg8_2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    padding: 60px 41px 105px 41px;
 }
 
 @font-face {
@@ -31,15 +40,24 @@ body{
 
 h1{
     font-family: 'DancingScriptBold';
+    color: var(--bs-quaternaryColour);
 }
 
 h2{
     font-family: 'CaveatBold';
+    color: white;
+}
+
+hr{
+    opacity: 1 !important;
+    border-width: medium;
+    color: var(--bs-quaternaryColour);
 }
 
 .spanFont{
     font-family: 'CaveatRegular';
     font-size: 1.5em;
+    color: white;
 }
 
 .mainBgColour{

@@ -8,6 +8,9 @@ import  Gallery  from '../gallery/Gallery';
 import { Image } from 'react-bootstrap';
 import CoupleImg from "../../assets/images/couple_image.webp"
 import DoubleHappiness from "../../assets/images/double_happiness.png"
+import CartoonImg from "../../assets/images/cartoon.jpeg"
+import CartoonCropped from "../../assets/images/cartoon_crop.jpeg"
+import CartoonImg2 from "../../assets/images/cartoon_mobile.jpeg"
 import { useSelector } from 'react-redux';
 import { getWedding } from '../../store/wedding/weddingSlice';
 
@@ -21,9 +24,9 @@ const Home = () => {
             <h1 className='text-center'>张先生&威尔逊小姐</h1>
             <h1 className='text-center'>{wedding.weddingName}</h1>
             <div className='text-center'>
-                <Image src={DoubleHappiness} className='w-50 h-50'/>
+                <Image src={CartoonCropped} className='w-100 h-100' style={{borderRadius: '50%', border: 'solid #eccb51 5px;'}}/>
             </div>            
-            <h2 className='text-center text-decoration-underline'>{wedding.location}</h2>
+            <h1 className='text-center text-decoration-underline' style={{fontSize: '2em'}}>{wedding.location}</h1>
             <div className="d-flex flex-row justify-content-evenly w-100 align-items-center">
               <span className='w-25 text-center spanFont'>
                 {startDate.toLocaleString('default', { month: 'long' })}
@@ -38,6 +41,7 @@ const Home = () => {
                 {startDate.getFullYear()}
               </span>
             </div>
+            <h2 className='text-center'>Dress Code: Please avoid wearing red. Thanks!</h2>
         </div>
         <div className='my-3 w-100 w-sm-50 justify-content-center align-items-center d-flex'>           
             <WeddingDetails></WeddingDetails>
@@ -45,6 +49,12 @@ const Home = () => {
         <div className='w-100 '>
             <hr></hr>
             <Gallery></Gallery>
+        </div>
+        <div className='w-100'>
+          <hr></hr>
+          <h1 className='text-center'>Wishlist</h1>
+          <hr></hr>
+          <h2>Gifts are not expected, but if you'd like to contribute towards our honeymoon, we would be incredibly grateful. Your presence on our special day is what we cherish most. ❤️</h2>
         </div>
     </div>);
   };
