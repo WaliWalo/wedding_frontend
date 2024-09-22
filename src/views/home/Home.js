@@ -42,9 +42,9 @@ const Home = () => {
               </span>
             </div>
             <h2 className="text-center" style={{fontSize: '1.8em'}}>Ceremony starts at 2pm</h2>
-        <hr></hr>
         </div>
         <div className='my-3 w-100 w-sm-50 justify-content-center align-items-center d-flex'>           
+        <hr></hr>
             <WeddingDetails></WeddingDetails>
         </div>
         <div className='w-100 '>
@@ -55,7 +55,7 @@ const Home = () => {
           <hr></hr>
           <h1 className='text-center'>Wishlist</h1>
           <hr></hr>
-          <h2>Gifts are not expected, but if you'd like to contribute towards our honeymoon, we would be incredibly grateful. Your presence on our special day is what we cherish most. ❤️</h2>
+          <h2>Gifts are not expected, but if you'd like to contribute towards our honeymoon, we would be incredibly grateful. ❤️</h2>
         </div>
     </div>);
   };

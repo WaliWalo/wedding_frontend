@@ -169,7 +169,8 @@ export const WeddingDetails = () => {
         content = <Loading></Loading>
     }else if (profileStatus === "succeeded"){
         content = 
-        <div>
+        <div>         
+            <hr></hr>
             <h2 className='text-center'>
               RSVP by 01.01.2025
             </h2>
