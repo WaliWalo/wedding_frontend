@@ -113,6 +113,7 @@ const Gallery = () => {
     <>
       <div className="d-flex justify-content-center flex-column align-items-center">
         <h1 className='text-center'>Gallery</h1>
+        <h2 class="text-center">Share your wedding photos here!</h2>
         <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
       </div>
       <hr></hr>

@@ -192,9 +192,11 @@ export const WeddingDetails = () => {
               </Button>
             </div>
             <hr></hr>
+            <h2 className='text-center'>Dress Code: Please avoid wearing red. Thanks!</h2>
+            <hr></hr>
             <h2 className='text-center'>
               Stay overnight in the on-site huts for £130 per night. Each hut sleeps up to 4 with double bunk beds. 
-              To book, contact our Reception Team at 01254 812010 or email reception@samlesburyhall.co.uk.
+              To book, contact Salemsbury's Reception Team at 01254 812010 or email reception@samlesburyhall.co.uk.
             </h2>
 
             {/* <h2 className='text-center my-2'>Will you be staying overnight?</h2>

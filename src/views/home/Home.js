@@ -21,8 +21,8 @@ const Home = () => {
     return (
     <div className='d-flex flex-wrap'>
         <div className='w-100 w-sm-50'>
-            <h1 className='text-center'>张先生&威尔逊小姐</h1>
-            <h1 className='text-center'>{wedding.weddingName}</h1>
+            <h1 className='text-center'>威尔逊小姐 & 张先生</h1>
+            <h1 className='text-center'>Rebecca & Jin's Wedding</h1>
             <div className='text-center'>
                 <Image src={CartoonCropped} className='w-100 h-100' style={{borderRadius: '50%', border: 'solid #eccb51 5px;'}}/>
             </div>            
@@ -41,7 +41,8 @@ const Home = () => {
                 {startDate.getFullYear()}
               </span>
             </div>
-            <h2 className='text-center'>Dress Code: Please avoid wearing red. Thanks!</h2>
+            <h2 className="text-center" style={{fontSize: '1.8em'}}>Ceremony starts at 2pm</h2>
+        <hr></hr>
         </div>
         <div className='my-3 w-100 w-sm-50 justify-content-center align-items-center d-flex'>           
             <WeddingDetails></WeddingDetails>
