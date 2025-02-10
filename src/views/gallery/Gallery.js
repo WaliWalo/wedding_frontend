@@ -113,11 +113,11 @@ const Gallery = () => {
     <>
       <div className="d-flex justify-content-center flex-column align-items-center">
         <h1 className='text-center'>Gallery</h1>
-        <h2 class="text-center">Share your wedding photos here!</h2>
-        <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
+        <h2 class="text-center">Share your wedding photos <a href='https://photos.app.goo.gl/n5q7zSF3LQGUF1of7' target="_blank">here!</a></h2>
+        {/* <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} /> */}
       </div>
       <hr></hr>
-      <LightGallery plugins={[lgZoom, lgVideo]} mode="lg-fade">
+      {/* <LightGallery plugins={[lgZoom, lgVideo]} mode="lg-fade">
           {images.map((x, i) => {
             let htmlString = "";
             let owner = x.public_id.includes(profile.id);
@@ -149,7 +149,7 @@ const Gallery = () => {
             }
           return htmlString;
           })}
-      </LightGallery>
+      </LightGallery> */}
     </>
   );
 };
