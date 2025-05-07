@@ -172,7 +172,7 @@ export const WeddingDetails = () => {
         <div>         
             <hr></hr>
             <h2 className='text-center'>
-              RSVP by 01.01.2025
+              RSVP by 08.06.2025
             </h2>
             <div className='d-flex justify-content-evenly'>
               <Button variant={rsvp ? "warning" : "outline-warning"} size="lg" className='px-5  mx-2' onClick={selectYes}>
