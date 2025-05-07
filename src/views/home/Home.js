@@ -20,7 +20,7 @@ const Home = () => {
     const endDate = new Date(wedding.endDate);
     return (
     <div className='d-flex flex-wrap'>
-        <div className='w-100 w-sm-50'>
+        <div className='w-100 w-sm-50 pe-sm-2'>
             <h1 className='text-center'>丽贝卡.威尔逊 & 张宏敬</h1>
             <h1 className='text-center'>Rebecca & Jin's Wedding</h1>
             <div className='text-center'>
